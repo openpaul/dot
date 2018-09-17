@@ -131,7 +131,7 @@ myWorkspaces "abed"   = [ "1", "2", "3"]
 myWorkspaces _   = [ "1", "2" ]
 myExtendedWorkspaces :: String -> [String]
 --myExtendedWorkspaces "abed" = [ "NSP", "chat", "stream", "root", "web" ]
---myExtendedWorkspaces "kahlua" = [ "web", "code", "mail", "music", "stream" ]
+myExtendedWorkspaces "kahlua" = [ "KEINE" ]
 --myExtendedWorkspaces "gordon" = [ "NSP", "root", "web" ]
 --myExtendedWorkspaces "jovis" = [ "NSP", "c", "cP", "quassel", "talk", "talkP", "root", "web" ]
 --myExtendedWorkspaces "lark" = [ "NSP", "music", "stream", "root", "web" ]
@@ -331,7 +331,7 @@ myKeys hostname nScreens conf@(XConfig {XMonad.modMask = modMask}) = M.fromList 
    zip (zip (repeat modMask) [xK_1..xK_9]) (map (withNthWorkspaceFiltered W.greedyView) [0..])
    ++
    -- mod-shift-[F1..F12] Move client to workspace N
-   zip (zip (repeat (modMask .|. shiftMask)) [xK_0..xK_9]) (map (withNthWorkspaceFiltered W.shift) [0..])
+   zip (zip (repeat (modMask .|. shiftMask)) [xK_1..xK_9]) (map (withNthWorkspaceFiltered W.shift) [0..])
    ++
    -- mod-control-shift-[F1..F12] Copy client to workspace N
    -- zip (zip (repeat (controlMask .|. shiftMask)) [xK_1..xK_9]) (map (withNthWorkspace copy) [1..])
@@ -625,7 +625,7 @@ myTrayer hostname = "killall trayer; trayer \
    \--tint 0x000000 \
    \--transparent true \
    \--alpha 0 \
-   \--expand false \
+   \--expand true \
    \--SetDockType  true"
    where
        trayWidth "nurikum" = "150"
